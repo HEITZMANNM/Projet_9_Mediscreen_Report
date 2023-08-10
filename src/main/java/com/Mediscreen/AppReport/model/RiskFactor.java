@@ -2,6 +2,9 @@ package com.Mediscreen.AppReport.model;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Getter
 public enum RiskFactor {
 
@@ -18,6 +21,12 @@ public enum RiskFactor {
     ANTIBODIES("anticorps");
 
     private String factorsInFrench;
+
+    private List<RiskFactor> allFactors = Arrays.asList(RiskFactor.values());
+
+    public List<RiskFactor> getAllFactors(){
+        return allFactors;
+    }
 
     private RiskFactor (String factorsInFrench)
     {
