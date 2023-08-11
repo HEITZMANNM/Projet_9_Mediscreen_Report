@@ -5,6 +5,6 @@ public enum RiskLevel {
     NONE,
     BORDERLINE,
     DANGER,
-    EARLY_ONSET;
+    EARLY_ONSET
 
 }
