@@ -66,7 +66,7 @@ public class ReportControllerTest {
 
         this.mockMvc.perform(MockMvcRequestBuilders.post("/report/generate")
                 .param("birthdate", "12/12/1990")
-                        .param("gender", patientDTO.getGender())
+                        .param("gender", "F")
                 .content(asJsonString(list))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
