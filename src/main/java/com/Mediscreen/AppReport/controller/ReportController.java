@@ -27,7 +27,9 @@ public class ReportController {
     @PostMapping("/report/generate")
     public Report generateAReport(@RequestParam(name = "birthdate") String birthdateString , @RequestParam(name = "gender") String gender , @RequestBody List<PatientAssesmentDTO> list) throws ParseException {
 
-        Date birthdate = new SimpleDateFormat("yyyy/MM/dd").parse(birthdateString);
+       birthdateString = birthdateString.substring(0, birthdateString.length()-6);
+
+        Date birthdate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(birthdateString);
 
         List<RiskFactor> listOfRiskFactorFound = reportService.searchForFactorsInAssessments(list);
         RiskLevel riskLevelEvaluated = reportService.evaluateRiskLevel(listOfRiskFactorFound, birthdate, gender);
